@@ -7,52 +7,62 @@ let  questions = [
     {
         title: "1. What is the capital of Oregon?",
         answers: ["Portland", "Bend", "Eugene", "Salem"],
-        correct: 3
+        correct: 3,
+        correctString: "Salem"
     },
     {
         title: "2. What is the name of Portland's major league soccer team?",
         answers: ["Firs", "Beavers", "Timbers", "Ducks"],
-        correct: 2
+        correct: 2,
+        correctString: "Timbers"
     },
     {
         title: "3. What is the city of Portland's official nickname?",
         answers: ["Rip City", "Rose City", "Bridgetown", "Stumptown"],
-        correct: 1
+        correct: 1,
+        correctString: "Rose City"
     },
     {
         title: "4. Which popular 80's movie was filmed in Oregon?",
         answers: ["The Karate Kid", "The Breakfast Club", "Teen Wolf", "The Goonies"],
-        correct: 3
+        correct: 3,
+        correctString: "The Goonies"
     },
     {
         title: "5. Portland was named by the flip of a coin. If it had landed on the other side, Portland would have been known as which US city?",
         answers: ["New York", "San Diego", "Seattle", "Boston"],
-        correct: 3
+        correct: 3,
+        correctString: "Boston"
     },
     {
         title: "6. The world's largest  independently owned bookstore is located in Portland. What is it's name?",
         answers: ["Division Street", "Rip City Books", "Powell's City of Books", "Barnes and Noble"],
-        correct: 2
+        correct: 2,
+        correctString: "Powell's City of Books"
     },
     {
         title: "7. Oregon is one of two states where you cannot legally...?",
         answers: ["Pump your own Gas", "Take your pet into a Pub", "Pick roses", "Chop down a Douglas Fir"],
-        correct: 0
+        correct: 0,
+        correctString: "Pump your own Gas"
     },
     {
         title: "8. Portland's unnoffical slogan is?",
         answers: ["Never chop a tree down", "Keep Portland Weird", "The City of Roses", "Home of the Benson Bubblers"],
-        correct: 1
+        correct: 1,
+        correctString: "Keep Portland Weird"
     },
     {
         title: "9. What is the tallest mountain in Oregon?",
         answers: ["Mount Jefferson", "South Sister", "North Sister", "Mount Hood"],
-        correct: 3
+        correct: 3,
+        correctString: "Mount Hood"
     },
     {
         title: "10. Why is Portland the greatest city in the United States?",
         answers: ["Outdoor Paradise", "Vast collection of micro-breweries", "Fantastic coffee shops", "All of the Above"],
-        correct: 3
+        correct: 3,
+        correctString: "All of the Above"
     }
 ];
 
@@ -67,7 +77,7 @@ $(document).ready(function() {
             if($('input:checked').length) {
             checkAnswer(guess);
             } else {
-                alert('Please select and answer')
+                alert('Please select an answer!')
             }
     });
 
@@ -133,22 +143,11 @@ function showQuestion() {
 
 function checkAnswer(guess) {
     let question = questions[currentQuestion];
+    console.log(question.correct);
     if(question.correct === parseInt(guess)) {
         score++;
-    } // add else statement here for wrong answer feedback
-     else {
-         wrongAnswer();
-     }
-    currentQuestion++;
-    showQuestion();
-}
-
-function wrongAnswer(guess) {
-    let question = questions[currentQuestion];
-    if(question.correct != parseInt(guess)) {
-        alert('wrong answer!');
-        $('.quiz').hide();
-        $('.incorrectGuess').show();
+    } else {
+        alert(`'Wrong Answer! The correct answer was ${question.correctString}'`)
     }
     currentQuestion++;
     showQuestion();
@@ -157,15 +156,13 @@ function wrongAnswer(guess) {
 function showSummary() {    
     $('.quiz').hide();
     $('.summary').show();
-    $('.quizFinish').show();
-    $('.summary-text').text(`"Congrats you scored ${score} out of ${questions.length} correct!"`)
+    $('.summary-text').text(`"Congrats you scored "${score}" out of "${questions.length}" correct!"`)
 }
 
 function restartQuiz() {
     score = 0;
     currentQuestion = 0;
     $('.summary').hide();
-    $('.quizFinish').hide();
     $('.quiz').show();
     showQuestion();
 }
