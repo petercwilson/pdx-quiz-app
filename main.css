@@ -37,8 +37,13 @@ h4 {
     padding: 20px;
 }
 
-.quiz, .summary, .correctGuess, .incorrectGuess {
+.quiz, .summary, .correctGuess, .incorrectGuess, .quizFinish {
     display: none;
+}
+
+.quizFinish {
+    box-sizing: border-box;
+    margin: 60px auto;
 }
 
 .answer {
@@ -93,6 +98,22 @@ h4 {
 
 .submit-answer button:active {
     transform: scale(0.99);
+}
+
+.summary {
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding: 10px;
+    width: 75%;
+    background-color: black;
+}
+
+.summary-text {
+    font-size: 30px;
+}
+
+.restart-quiz {
+    margin: 60px auto;
 }
 
 

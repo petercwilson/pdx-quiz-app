@@ -157,13 +157,15 @@ function wrongAnswer() {
 function showSummary() {    
     $('.quiz').hide();
     $('.summary').show();
-    $('.summary-text').text(`"Congrats you scored "${score}" out of "${questions.length}" correct!"`)
+    $('.quizFinish').show();
+    $('.summary-text').text(`"Congrats you scored ${score} out of ${questions.length} correct!"`)
 }
 
 function restartQuiz() {
     score = 0;
     currentQuestion = 0;
     $('.summary').hide();
+    $('.quizFinish').hide();
     $('.quiz').show();
     showQuestion();
 }
