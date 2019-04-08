@@ -143,7 +143,7 @@ function checkAnswer(guess) {
     showQuestion();
 }
 
-function wrongAnswer() {
+function wrongAnswer(guess) {
     let question = questions[currentQuestion];
     if(question.correct != parseInt(guess)) {
         alert('wrong answer!');
