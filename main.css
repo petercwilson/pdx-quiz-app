@@ -1,0 +1,112 @@
+ * {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: normal;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+body {
+    background: url(img/pdx-bg.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* Basic Styles */
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    margin-top: 50px;
+    padding: 60px;
+}
+
+h2 {
+    font-size: 30px;
+    padding: 60px 20px 20px;
+}
+
+h4 {
+    font-size: 20px;
+    padding: 20px;
+}
+
+a {
+    border: 1px solid black;
+    font-size: 50px;
+    padding: 10px 25px;
+    color: black;
+    border-radius: 5px;
+    margin-top: 50px;
+    display: inline-block;
+}
+
+a:hover {
+    background-color: #C95F70;
+    color: white;
+}
+
+.quiz, .summary {
+    display: none;
+}
+
+.answer {
+    cursor: pointer;
+}
+
+.summary-text {
+    background-color: black;
+    opacity: .5;
+    margin: auto;
+    width: 25%;
+    font-size: 20px;
+}
+
+.submit-answer {
+    color: black;
+}
+
+/* Form Styles */
+.form {
+    max-width: 450px;
+    margin: 60px auto;
+}
+
+.form-answer {
+    display: block;
+    box-sizing: border-box;
+    background-color: black;
+    opacity: .5;
+    width: 100%;
+    margin: 20px 1% 20px 0;
+    padding: 14px;
+    height: 50px;
+    text-align: left;
+}
+
+label {
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Input Style */
+input[type="radio"] {
+    position: relative;
+    top: -2px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+/* Color Theme Swatches in Hex */
+.Welcome-to-Portland-1-hex { color: #171F26; }
+.Welcome-to-Portland-2-hex { color: #76A6A6; }
+.Welcome-to-Portland-3-hex { color: #01403A; }
+.Welcome-to-Portland-4-hex { color: #BF5D39; }
+.Welcome-to-Portland-5-hex { color: #F2522E; }
