@@ -5,66 +5,70 @@ let currentQuestion = 0;
 
 let  questions = [
     {
-        title: "What is the capital of Oregon?",
+        title: "1. What is the capital of Oregon?",
         answers: ["Portland", "Bend", "Eugene", "Salem"],
         correct: 3
     },
     {
-        title: "What is the name of Portland's major league soccer team?",
+        title: "2. What is the name of Portland's major league soccer team?",
         answers: ["Firs", "Beavers", "Timbers", "Ducks"],
         correct: 2
     },
     {
-        title: "What is the city of Portland's official nickname?",
+        title: "3. What is the city of Portland's official nickname?",
         answers: ["Rip City", "Rose City", "Bridgetown", "Stumptown"],
         correct: 1
     },
     {
-        title: "Which popular 80's movie was filmed in Oregon?",
+        title: "4. Which popular 80's movie was filmed in Oregon?",
         answers: ["The Karate Kid", "The Breakfast Club", "Teen Wolf", "The Goonies"],
         correct: 3
     },
     {
-        title: "Portland was named by the flip of a coin. If it had landed on the other side, Portland would have been known as which US city?",
+        title: "5. Portland was named by the flip of a coin. If it had landed on the other side, Portland would have been known as which US city?",
         answers: ["New York", "San Diego", "Seattle", "Boston"],
         correct: 3
     },
     {
-        title: "The world's largest  independently owned bookstore is located in Portland. What is it's name?",
+        title: "6. The world's largest  independently owned bookstore is located in Portland. What is it's name?",
         answers: ["Division Street", "Rip City Books", "Powell's City of Books", "Barnes and Noble"],
         correct: 2
     },
     {
-        title: "Oregon is one of two states where you cannot legally...?",
+        title: "7. Oregon is one of two states where you cannot legally...?",
         answers: ["Pump your own Gas", "Take your pet into a Pub", "Pick roses", "Chop down a Douglas Fir"],
         correct: 0
     },
     {
-        title: "Portland's unnoffical slogan is?",
+        title: "8. Portland's unnoffical slogan is?",
         answers: ["Never chop a tree down", "Keep Portland Weird", "The City of Roses", "Home of the Benson Bubblers"],
         correct: 1
     },
     {
-        title: "What is the tallest mountain in Oregon?",
+        title: "9. What is the tallest mountain in Oregon?",
         answers: ["Mount Jefferson", "South Sister", "North Sister", "Mount Hood"],
         correct: 3
     },
     {
-        title: "Why is Portland the greatest city in the United States?",
+        title: "10. Why is Portland the greatest city in the United States?",
         answers: ["Outdoor Paradise", "Vast collection of micro-breweries", "Fantastic coffee shops", "All of the Above"],
         correct: 3
     }
 ];
 
 
-
+// Event Listeners
 
 $(document).ready(function() {
 
     $('.answers').on('click', '.submit-answer', function(e) {
         e.preventDefault();
             let guess = $('input:checked').val();
+            if($('input:checked').length) {
             checkAnswer(guess);
+            } else {
+                alert('Please select and answer')
+            }
     });
 
     
@@ -76,6 +80,8 @@ $(document).ready(function() {
 
 });
 
+
+// Functions
 
 function startQuiz() {
     $('.start-quiz').click(function(e) {
@@ -127,10 +133,23 @@ function showQuestion() {
 
 function checkAnswer(guess) {
     let question = questions[currentQuestion];
-    console.log(question.correct);
     if(question.correct === parseInt(guess)) {
         score++;
     } // add else statement here for wrong answer feedback
+     else {
+         wrongAnswer();
+     }
+    currentQuestion++;
+    showQuestion();
+}
+
+function wrongAnswer() {
+    let question = questions[currentQuestion];
+    if(question.correct != parseInt(guess)) {
+        alert('wrong answer!');
+        $('.quiz').hide();
+        $('.incorrectGuess').show();
+    }
     currentQuestion++;
     showQuestion();
 }

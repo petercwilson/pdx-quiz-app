@@ -29,7 +29,7 @@ h1 {
 
 h2 {
     font-size: 30px;
-    padding: 60px 20px 20px;
+    margin: 60px 150px;
 }
 
 h4 {
@@ -37,22 +37,7 @@ h4 {
     padding: 20px;
 }
 
-a {
-    border: 1px solid black;
-    font-size: 50px;
-    padding: 10px 25px;
-    color: black;
-    border-radius: 5px;
-    margin-top: 50px;
-    display: inline-block;
-}
-
-a:hover {
-    background-color: #C95F70;
-    color: white;
-}
-
-.quiz, .summary {
+.quiz, .summary, .correctGuess, .incorrectGuess {
     display: none;
 }
 
@@ -60,17 +45,56 @@ a:hover {
     cursor: pointer;
 }
 
-.summary-text {
+.score-status {
     background-color: black;
     opacity: .5;
-    margin: auto;
-    width: 25%;
-    font-size: 20px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 50%;
+    font-size: 30px;
 }
 
-.submit-answer {
-    color: black;
+.score-status h4 {
+    font-size: 30px;
 }
+
+.score-status p {
+    font-size: 30px;
+}
+
+.submit-answer, a {
+    color: black;
+    margin: 50px auto;
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 30;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.submit-answer:hover, .submit-answer:focus, a:hover, a:focus {
+    background: #0053ba;
+}
+
+.submit-answer:focus, a:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.submit-answer button:active {
+    transform: scale(0.99);
+}
+
 
 /* Form Styles */
 .form {
@@ -104,9 +128,3 @@ input[type="radio"] {
     margin-left: 20px;
 }
 
-/* Color Theme Swatches in Hex */
-.Welcome-to-Portland-1-hex { color: #171F26; }
-.Welcome-to-Portland-2-hex { color: #76A6A6; }
-.Welcome-to-Portland-3-hex { color: #01403A; }
-.Welcome-to-Portland-4-hex { color: #BF5D39; }
-.Welcome-to-Portland-5-hex { color: #F2522E; }
