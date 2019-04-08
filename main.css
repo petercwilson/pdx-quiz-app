@@ -41,9 +41,9 @@ h4 {
     display: none;
 }
 
-.quizFinish {
-    box-sizing: border-box;
-    margin: 60px auto;
+.wrong-answer {
+    font-size: 20px;
+    margin-top: 60px;
 }
 
 .answer {
@@ -60,14 +60,29 @@ h4 {
 }
 
 .score-status h4 {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .score-status p {
-    font-size: 30px;
+    font-size: 25px;
 }
 
-.submit-answer, a {
+.correct {
+    background-color: #28a745;
+    width: 50%;
+    margin: 60px auto;
+}
+
+.incorrect {
+    background-color: #dc3545;
+    width: 50%;
+    margin: 60px auto;
+
+}
+
+/* Button Styles */
+
+.submit-answer, a, .next-question {
     color: black;
     margin: 50px auto;
     display: inline-block;
@@ -100,22 +115,6 @@ h4 {
     transform: scale(0.99);
 }
 
-.summary {
-    box-sizing: border-box;
-    margin: 20px auto;
-    padding: 10px;
-    width: 75%;
-    background-color: black;
-}
-
-.summary-text {
-    font-size: 30px;
-}
-
-.restart-quiz {
-    margin: 60px auto;
-}
-
 
 /* Form Styles */
 .form {
@@ -129,7 +128,7 @@ h4 {
     background-color: black;
     opacity: .5;
     width: 100%;
-    margin: 20px 1% 20px 0;
+    margin: 10px 1% 10px 0;
     padding: 14px;
     height: 50px;
     text-align: left;

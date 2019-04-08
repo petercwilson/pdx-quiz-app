@@ -67,32 +67,6 @@ let  questions = [
 ];
 
 
-// Event Listeners
-
-$(document).ready(function() {
-
-    $('.answers').on('click', '.submit-answer', function(e) {
-        e.preventDefault();
-            let guess = $('input:checked').val();
-            if($('input:checked').length) {
-            checkAnswer(guess);
-            } else {
-                alert('Please select an answer!')
-            }
-    });
-
-    
-
-    $('.restart-quiz').click(function(e) {
-        e.preventDefault();
-        restartQuiz();
-    });
-
-});
-
-
-// Functions
-
 function startQuiz() {
     $('.start-quiz').click(function(e) {
         e.preventDefault();
@@ -141,37 +115,61 @@ function showQuestion() {
     }
 }
 
+function submitAnswer() {
+    $('.answers').on('click', '.submit-answer', function(e) {
+        e.preventDefault();
+            let guess = $('input:checked').val();
+            if($('input:checked').length) {
+            checkAnswer(guess);
+            } else {
+                alert('Please select an answer!')
+            }
+    });
+}
+
 function checkAnswer(guess) {
     let question = questions[currentQuestion];
     console.log(question.correct);
     if(question.correct === parseInt(guess)) {
-        score++;
+        //score++;
+        $('.quiz').append(`<p class="correct"> That is the correct answer!</p>`);
+        updateScore();
     } else {
-        alert(`'Wrong Answer! The correct answer was ${question.correctString}'`)
+        $('.quiz').append(`<p class="incorrect"> The correct answer was ${question.correctString}</p>`);
+        //alert(`'Wrong Answer! The correct answer was ${question.correctString}'`)
+
     }
     currentQuestion++;
     showQuestion();
 }
 
+function updateScore() {
+    score++;
+}
+
 function showSummary() {    
     $('.quiz').hide();
     $('.summary').show();
-    $('.summary-text').text(`"Congrats you scored "${score}" out of "${questions.length}" correct!"`)
+    $('.summary-text').text(`"Congrats you scored ${score} out of ${questions.length} correct!"`);
 }
 
 function restartQuiz() {
-    score = 0;
-    currentQuestion = 0;
-    $('.summary').hide();
-    $('.quiz').show();
-    showQuestion();
+    $('.restart-quiz').click(function(e) {
+        e.preventDefault();
+        score = 0;
+        currentQuestion = 0;
+        $('.summary').hide();
+        $('.quiz').show();
+        showQuestion();
+    });
 }
 
 function handleQuiz() {
     startQuiz();
-    // checkAnswer();
+    //checkAnswer();
+    submitAnswer();
     // showSummary();
-    // restartQuiz();
+    restartQuiz();
 }
 
 handleQuiz();
