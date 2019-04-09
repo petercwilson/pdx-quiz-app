@@ -37,7 +37,9 @@ h4 {
     padding: 20px;
 }
 
-.quiz, .summary, .correctGuess, .incorrectGuess, .quizFinish {
+.quiz, .summary, .correctGuess, .incorrectGuess, 
+.quizFinish, #flashMessageCorrect,
+#flashMessageIncorrect {
     display: none;
 }
 
@@ -78,6 +80,10 @@ h4 {
     width: 50%;
     margin: 60px auto;
 
+}
+
+.summary-text, .summary-text p {
+    font-size: 20px;
 }
 
 /* Button Styles */

@@ -129,14 +129,9 @@ function submitAnswer() {
 
 function checkAnswer(guess) {
     let question = questions[currentQuestion];
-    console.log(question.correct);
     if(question.correct === parseInt(guess)) {
-        //score++;
-        $('.quiz').append(`<p class="correct"> That is the correct answer!</p>`);
         updateScore();
     } else {
-        $('.quiz').append(`<p class="incorrect"> The correct answer was ${question.correctString}</p>`);
-        //alert(`'Wrong Answer! The correct answer was ${question.correctString}'`)
 
     }
     currentQuestion++;
@@ -147,10 +142,21 @@ function updateScore() {
     score++;
 }
 
+function results() {
+    if (score <= 3) {
+        $('.summary-text').append('You have much to learn about the great city of Portland. Try again.');    
+    } else if (score > 3 && score <= 7) {
+        $('.summary-text').append('You are aware of some of the things that make Portland Great! Try again.');
+    } else {
+        $('.summary-text').append('You are a hipster who watches Portlandia and drinks Stumptown coffee. Nice job!');
+    }
+}
+
 function showSummary() {    
     $('.quiz').hide();
     $('.summary').show();
-    $('.summary-text').text(`"Congrats you scored ${score} out of ${questions.length} correct!"`);
+    $('.summary-text').html(`<p>You scored ${score} out of ${questions.length} correct!</p><br />`);
+    results();
 }
 
 function restartQuiz() {
@@ -166,9 +172,7 @@ function restartQuiz() {
 
 function handleQuiz() {
     startQuiz();
-    //checkAnswer();
     submitAnswer();
-    // showSummary();
     restartQuiz();
 }
 
