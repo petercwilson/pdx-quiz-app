@@ -48,7 +48,7 @@ let  questions = [
     },
     {
         title: "8. Portland's unnoffical slogan is?",
-        answers: ["Never chop a tree down", "Keep Portland Weird", "The City of Roses", "Home of the Benson Bubblers"],
+        answers: ["Never Chop A Tree Down", "Keep Portland Weird", "The City of Roses", "Benson Bubblers"],
         correct: 1,
         correctString: "Keep Portland Weird"
     },
@@ -60,7 +60,7 @@ let  questions = [
     },
     {
         title: "10. Why is Portland the greatest city in the United States?",
-        answers: ["Outdoor Paradise", "Vast collection of micro-breweries", "Fantastic coffee shops", "All of the Above"],
+        answers: ["Outdoor paradise", "Excellent breweries", "Fantastic coffee shops", "All of the Above"],
         correct: 3,
         correctString: "All of the Above"
     }
@@ -84,32 +84,37 @@ function showQuestion() {
     $('.quiz h2').text(question.title);
     $('.answers').html('');
         $('.answers').append(`
-        <div class="form">
-            <form>
-                <p class="form-answer">
-                    <input type="radio" name="quiz" id="answer0" value="0">
-                    <label for="answer0">${question.answers[0]}</label>
-                </p>
-                <p class="form-answer">
-                    <input type="radio" name="quiz" id="answer1" value="1">
-                    <label for="answer1">${question.answers[1]}</label> 
-                </p>
-                <p class="form-answer">
-                    <input type="radio" name="quiz" id="answer2" value="2">
-                    <label for="answer2">${question.answers[2]}</label>
-                </p>
-                <p class="form-answer">
-                    <input type="radio" name="quiz" id="answer3" value="3">
-                    <label for="answer3">${question.answers[3]}</label>
-                </p>
-                <p>
-                    <input type="submit" class="submit-answer" value="Submit">
-                </p>
-            </form>
-        </div>
-        <div class="score-status">
-            <h4>Quiz Summary</h4>
-            <p class="summary-text">${score} out of ${currentQuestion} correct!</p>
+        <div class="container">
+            <div class="logo">
+                <img src="img/2002_grande.png" />
+            </div>
+            <div class="form">
+                <form>
+                    <p class="form-answer">
+                        <input type="radio" name="quiz" id="answer0" value="0">
+                        <label for="answer0">${question.answers[0]}</label>
+                    </p>
+                    <p class="form-answer">
+                        <input type="radio" name="quiz" id="answer1" value="1">
+                        <label for="answer1">${question.answers[1]}</label> 
+                    </p>
+                    <p class="form-answer">
+                        <input type="radio" name="quiz" id="answer2" value="2">
+                        <label for="answer2">${question.answers[2]}</label>
+                    </p>
+                    <p class="form-answer">
+                        <input type="radio" name="quiz" id="answer3" value="3">
+                        <label for="answer3">${question.answers[3]}</label>
+                    </p>
+                    <p>
+                        <input type="submit" class="submit-answer" value="Submit">
+                    </p>
+                </form>
+            </div>
+            <div class="score-status">
+                <h4>Quiz Summary</h4>
+                <p class="summary-text">${score} out of ${currentQuestion} correct!</p>
+            </div>
         </div>
         `)    
     }
@@ -130,16 +135,12 @@ function submitAnswer() {
 function checkAnswer(guess) {
     let question = questions[currentQuestion];
     if(question.correct === parseInt(guess)) {
-        updateScore();
+        score++;
     } else {
-
+        alert(`"Wrong answer! The correct answer was ${question.correctString}"`);
     }
     currentQuestion++;
     showQuestion();
-}
-
-function updateScore() {
-    score++;
 }
 
 function results() {
@@ -148,7 +149,7 @@ function results() {
     } else if (score > 3 && score <= 7) {
         $('.summary-text').append('You are aware of some of the things that make Portland Great! Try again.');
     } else {
-        $('.summary-text').append('You are a hipster who watches Portlandia and drinks Stumptown coffee. Nice job!');
+        $('.summary-text').append('Wow! You are a hipster who watches Portlandia and drinks Stumptown coffee. Go Rip City!');
     }
 }
 
@@ -173,6 +174,7 @@ function restartQuiz() {
 function handleQuiz() {
     startQuiz();
     submitAnswer();
+    showQuestion();
     restartQuiz();
 }
 

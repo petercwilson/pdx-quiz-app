@@ -1,13 +1,18 @@
+/* Base Styles -------------------- */
  * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rubik', sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-size: 16px;
     font-weight: normal;
-    color: white;
+    color: #FAF5F2;
     text-decoration: none;
     text-align: center;
+}
+
+.container {
+    margin: 0 auto;
 }
 
 body {
@@ -18,18 +23,23 @@ body {
     background-size: cover;
 }
 
-/* Basic Styles */
 h1 {
     text-align: center;
     font-size: 50px;
-    color: white;
+    font-weight: bolder;
+    color:#FAF5F2;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
     margin-top: 50px;
     padding: 60px;
+    line-height: 4rem;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 40px;
+    color: #FAF5F2;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
     margin: 60px 150px;
+    padding: 43px 0;
 }
 
 h4 {
@@ -37,9 +47,20 @@ h4 {
     padding: 20px;
 }
 
-.quiz, .summary, .correctGuess, .incorrectGuess, 
-.quizFinish, #flashMessageCorrect,
-#flashMessageIncorrect {
+.logo {
+    position: absolute;
+    top: 6px;
+    left: -171px;
+    opacity: .6;
+}
+
+.logo img {
+    height: 15%;
+    width: 15%;
+}
+
+.quiz, .summary, 
+.quizFinish {
     display: none;
 }
 
@@ -53,11 +74,11 @@ h4 {
 }
 
 .score-status {
-    background-color: black;
-    opacity: .5;
-    margin: 0 auto;
+    background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
+    background: rgba(54, 25, 25, .5);
+    margin: 0 auto 20px;
     padding-bottom: 20px;
-    width: 50%;
+    width: 350px;
     font-size: 30px;
 }
 
@@ -69,35 +90,24 @@ h4 {
     font-size: 25px;
 }
 
-.correct {
-    background-color: #28a745;
-    width: 50%;
-    margin: 60px auto;
-}
-
-.incorrect {
-    background-color: #dc3545;
-    width: 50%;
-    margin: 60px auto;
-
-}
-
 .summary-text, .summary-text p {
     font-size: 20px;
+    margin: 20px auto;
+    padding: 0 60px;
 }
+
 
 /* Button Styles */
 
-.submit-answer, a, .next-question {
+.submit-answer, a {
     color: black;
     margin: 50px auto;
     display: inline-block;
     border: none;
     padding: 1rem 2rem;
-    margin: 30;
     text-decoration: none;
     background: #0069ed;
-    color: #ffffff;
+    color: #FAF5F2;
     font-family: sans-serif;
     font-size: 1rem;
     cursor: pointer;
@@ -113,7 +123,7 @@ h4 {
 }
 
 .submit-answer:focus, a:focus {
-    outline: 1px solid #fff;
+    outline: 1px solid #FAF5F2;
     outline-offset: -4px;
 }
 
@@ -124,33 +134,90 @@ h4 {
 
 /* Form Styles */
 .form {
-    max-width: 450px;
+    max-width: 500px;
     margin: 60px auto;
 }
 
 .form-answer {
     display: block;
     box-sizing: border-box;
-    background-color: black;
-    opacity: .5;
+    background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
+    background: rgba(54, 25, 25, .5);
     width: 100%;
     margin: 10px 1% 10px 0;
-    padding: 14px;
+    padding: 6px;
     height: 50px;
     text-align: left;
 }
 
 label {
-    color: white;
+    color: #FAF5F2;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 /* Input Style */
 input[type="radio"] {
     position: relative;
-    top: -2px;
+    top: -4px;
     margin-right: 20px;
     margin-left: 20px;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    .start a {
+        padding: 1rem 2rem;
+        font-size: 25px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        margin: 70px 50px 0px;
+        padding: 10px;
+        font-size: 25px;
+    }
+
+    .form {
+        max-width: 350px;
+        margin: 60px auto;
+    }
+    
+    .form-answer {
+        display: block;
+        box-sizing: border-box;
+        width: 90%;
+        margin: 10px 1% 10px 17px;
+        padding: 14px;
+        height: 50px;
+        text-align: left;
+    }
+    
+    label {
+        font-size: 20px;
+    }
+
+    .submit-answer, a {
+        margin: 20px auto;
+    }
+
+    div.score-status {
+        margin-bottom: 20px;
+        width: 50%;
+    }
+
+    .score-status h4 {
+        font-size: 20px;
+    }
+
+    p.summary-text, .summary-text {
+        font-size: 20px;
+        padding: 0 20px;
+        margin: 10px auto;
+    }
 }
 
