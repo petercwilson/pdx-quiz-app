@@ -42,13 +42,13 @@ let  questions = [
     },
     {
         title: "7. Oregon is one of two states where you cannot legally...?",
-        answers: ["Pump your own Gas", "Take your pet into a Pub", "Pick roses", "Chop down a Douglas Fir"],
+        answers: ["Pump your own Gas", "Take your pet into a Pub", "Pick roses", "Chop a Douglas Fir"],
         correct: 0,
         correctString: "Pump your own Gas"
     },
     {
         title: "8. Portland's unnoffical slogan is?",
-        answers: ["Never Chop A Tree Down", "Keep Portland Weird", "The City of Roses", "Benson Bubblers"],
+        answers: ["Never Chop Trees", "Keep Portland Weird", "The City of Roses", "Benson Bubblers"],
         correct: 1,
         correctString: "Keep Portland Weird"
     },
@@ -86,7 +86,7 @@ function showQuestion() {
         $('.answers').append(`
         <div class="container">
             <div class="logo">
-                <img src="img/2002_grande.png" />
+                <img src="img/2002_grande.png" alt="oregon logo"/>
             </div>
             <div class="form">
                 <form>
