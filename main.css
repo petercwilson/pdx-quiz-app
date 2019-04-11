@@ -174,12 +174,17 @@ input[type="radio"] {
 
     h1 {
         font-size: 30px;
+        line-height: normal;
     }
 
     h2 {
         margin: 70px 50px 0px;
         padding: 10px;
         font-size: 25px;
+    }
+
+    h4 {
+        display: none;
     }
 
     .form {
@@ -206,8 +211,12 @@ input[type="radio"] {
     }
 
     div.score-status {
-        margin-bottom: 20px;
-        width: 50%;
+        width: 150px;
+        height: 40px;
+        padding-top: 15px;
+        position: absolute;
+        top: 14px;
+        right: 10px;
     }
 
     .score-status h4 {
@@ -215,9 +224,9 @@ input[type="radio"] {
     }
 
     p.summary-text, .summary-text {
-        font-size: 20px;
-        padding: 0 20px;
-        margin: 10px auto;
+        font-size: 16px;
+        padding: 6px;
+        margin: -10px auto;
     }
 }
 
